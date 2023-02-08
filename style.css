@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "Helvetica Neue";
+    src:url("HelveticaNeue.ttc");
+}
+
+body {
+    width:100%;
+    max-width: 1920px;
+    height:100%;
+    padding:25px 70px;
+    background: 
+    url("images/LOGO-40\ 1.png") 65% 60%, 
+    url("images/shutterstock_2189773743\ 1.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-size: 299px 299px, 100% 100%;
+}
+
+.line {
+    width:100%;
+    height:1px;
+    background-color: #1A1A1A;
+    margin-top: 26px;
+}
+
+button {
+    width:464px;
+    height:60px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    background-color: #1A1A1A;
+    color:#FFFFFF; 
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
