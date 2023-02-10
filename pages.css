@@ -1,0 +1,196 @@
+@font-face {
+    font-family: "Helvetica Neue";
+    src:url("HelveticaNeue.ttc");
+}
+
+body {
+    width:100%;
+    max-width: 1920px;
+    font-family: "Helvetica Neue";
+    font-style: normal;
+}
+
+/* ////general styles//// */
+
+.container-general-info-page,
+.container-experience-page,
+.container-education-page {
+    display:flex;
+    width:100%;
+}
+
+.general-info-section,
+.experience-section,
+.education-section {
+    width:100%;
+    max-width:1098px;
+    background-color: #F9F9F9;
+    padding:47px 150px 65px 150px;
+    display:flex;
+    flex-direction: column;
+    gap:77px;
+}
+
+.left-arrow-icon {
+    position:absolute;
+    width:9.21px;
+    height:16px;
+    left:77px;
+}
+.header {
+    display:flex;
+    flex-direction: column;
+    gap:12px;
+}
+.header :first-child {
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header h1 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color:#1A1A1A;
+}
+.header p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color:#1A1A1A;
+}
+
+.line-header {
+    width:100%;
+    border: 1px solid #1A1A1A;
+}
+form {
+    width:100%;
+    max-width:846px;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    gap:33px;
+}
+
+.standart-form-div {
+    width:inherit;
+    display:flex;
+    flex-direction: column;
+    gap:8px;
+}
+.standart-form-div >div {
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color:#000000;
+}
+p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    color: #2E2E2E;
+    opacity:0.7;
+}
+input {
+    width:100%;
+    max-width:798px;
+    height:48px;
+    background: #FFFFFF;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+    padding: 13px 16px;
+
+}
+.error-icon {
+    width:21px;
+    height:18px;
+}
+
+.btn {
+    width: 151px;
+    height: 48px;
+    background-color: #6B40E3;
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+}
+
+/* ////general-info-page styles//// */
+
+.name-div {
+    display:flex;
+    justify-content: space-between;
+}
+.name-div input {
+    width:371px;
+}
+.photo-div {
+    flex-direction:row;
+    gap:19px;
+    margin-top:21px;
+    margin-bottom:21px;
+}
+.photo-div label {
+    font-size: 18px;
+    line-height: 22px;
+    color: #1A1A1A;
+}
+.photo-div input {
+    width:107px;
+    height:27px;
+    background-color: #0E80BF;
+    color:#FFFFFF;
+}
+.upload-btn {
+    width:107px;
+    height:27px;
+    background-color: #0E80BF;
+    color:#FFFFFF;
+}
+.about-me-div input {
+    height:103px;
+}
+.general-info-section .next-btn {
+    align-self: flex-end;
+    margin-top: 127px;
+}
+
+
+.icon {
+    background: url(images/Vector.png);
+    background-repeat: no-repeat;
+    background-position: right 16px top 50%;
+}
+.hidden {
+    display:none;
+}
+.visible {
+    display:inline-block;
+}
+
+
+/* ***result-section div*** */
+.result-section {
+    width:100%;
+    max-width:822px;
+    padding: 48px 75px 44px 78px;
+    border:1px solid black;
+
+}
+
+.logo-result {
+    width:42px;
+    height:42px;
+    border:1px solid black;
+}

@@ -1,0 +1,78 @@
+<head>
+    <title> Redberry Project </title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="pages.css">
+    <script src="generalinfo.js" defer></script>
+</head>
+
+<body>
+    <div class="container-general-info-page">
+        <div class="general-info-section">
+
+            <img class="left-arrow-icon" src="images/arrow.png" alt="icon of left arrow">
+    
+            <div class="header">
+                <div>
+                    <h1>პირადი ინფო</h1>
+                    <p>1/3</p>
+                </div>
+                <div class="line-header"></div>  
+            </div>
+    
+            <form>
+                <div class="name-div">
+                    <div class="standart-form-div">
+                        <label for="firstname">სახელი</label>
+                        <div>
+                            <input value=""type="text" id="firstname" name="firstname" placeholder="ანზორ" pattern="" required> 
+                        </div>
+                        <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+                    </div>
+                    <div class="standart-form-div">
+                        <label for="lastname">გვარი</label>
+                        <div>
+                            <input type="text" id="lastname" name="lastname" placeholder="მუმლაძე" required>
+                        </div>
+                        <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+                    </div>
+                </div>
+    
+                <div class="photo-div standart-form-div">
+                    <label>პირადი ფოტოს ატვირთვა</label>
+                    <label for="photo" class="upload-btn">ატვირთვა</label>
+                    <input type="file" id="photo" name="photo" style="visibility:hidden;" placeholder="ატვირთვა" required>
+                </div>
+    
+                <div class="about-me-div standart-form-div">
+                    <label for="aboutme">ჩემ შესახებ (არასავალდებულო)</label>
+                    <input type="text" id="aboutme" name="aboutme" placeholder="ზოგადი ინფო შენ შესახებ">
+                </div>
+    
+                <div class="email-div standart-form-div">
+                    <label for="email">ელ-ფოსტა</label>
+                    <div>
+                        <input type="email" id="email" name="email" placeholder="anzor666@redberry.ge" pattern="/^[\w.+\-]+@redberry\.ge$/" required>
+                    </div>
+                    <p>უნდა მთავრდებოდეს @redberry.ge-ით</p>
+                </div>
+    
+                <div class="phone-number-div standart-form-div">
+                    <label for="phonenumber">მობილურის ნომერი</label>
+                    <div>
+                        <input type="tel" id="phonenumber" name="phonenumber" pattern="" placeholder="+995 551 12 34 56">
+                        <img class="error-icon hidden"src="images/error.png" alt="error icon">
+                    </div>
+                    <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
+                </div>
+                
+                <input class="btn next-btn" value="შემდეგი">
+            </form>
+        </div>
+            
+       <div class="result-section">
+            <img class="logo-result"src="images/LOGO-12 1.png" alt="logo">
+       </div>
+    </div>
+</body>
