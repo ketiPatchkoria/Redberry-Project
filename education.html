@@ -1,0 +1,138 @@
+<head>
+    <title> Redberry Project </title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="pages.css">
+    <script src="global.js" defer></script>
+    <script src="education.js" defer></script>
+</head>
+
+<body>
+    <div class="container-education-page"> 
+        <div class="education-section">
+            <img class="left-arrow-icon" src="images/arrow.png" alt="icon of left arrow">
+    
+            <div class="header">
+                <div>
+                    <h1>განათლება</h1>
+                    <p>3/3</p>
+                </div>
+                <div class="line-header"></div>  
+            </div>
+
+            <form>
+                <div class="standart-form-div">
+                    <label for="university">სასწავლებელი</label>
+                    <div>
+                        <input type="text" id="university" name="university" placeholder="სასწავლებელი" required>
+                    </div>
+                    <p>მინიმუმ 2 სიმბოლო</p>
+                </div>
+
+                <div class="degree-enddate-div">
+                    <div class="standart-form-div">
+                        <label for="degree">ხარისხი</label>
+                        <div>
+                            <select id="degree" name="degree" placeholder="აირჩიეთ ხარისხი"required>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="standart-form-div">
+                        <label for="enddate-fordegree">დამთავრების რიცხვი</label>
+                        <div>
+                            <input type="date" id="enddate-fordegree" name="enddate-fordegree" min="1950-01-01" max="2023-02-13" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description-div standart-form-div">
+                    <label for="description">აღწერა</label>
+                    <div>
+                        <input type="text" id="description" name="description" placeholder="განათლების აღწერა" required>
+                    </div>
+                </div>
+
+                <div class="line"> </div>
+
+                <button class="adding-form-button">სხვა სასწავლებლის დამატება</button>
+
+                <div class="next-back-buttons-div"> 
+                    <input class="btn back-btn" type="" value="უკან">
+                    <input class="btn next-btn" type="" value="დასრულება">
+                </div>
+            </form>
+        </div>
+
+        <div class="result-section">
+            <div class="general-info-part-result">
+                <div>
+                    <div class="name-div-result">
+                        <h2 class="firstname-result"></h2>
+                        <h2 class="lastname-result"></h2>
+                    </div>
+                    <div class="email-and-phone-div-result">
+                        <div>
+                            <img src="images/email.png" alt="icon of email">
+                            <p class="email-result"></p>
+                        </div>
+                        <div>
+                            <img src="images/phone.png" alt="icon of phone">
+                            <p class="phonenumber-result"></p>
+                        </div>
+                    </div>
+                    <div class="about-me-div-result">
+                        <p>ჩემ შესახებ</p>
+                        <p class="aboutme-result"></p>
+                    </div>
+                </div>
+                <img src="images/avatar.png" alt="avatar">
+            </div>
+            <div class="line-result"></div>
+
+            <div class="experience-part-result">
+                <div>
+                    <div class="experience-header-result">
+                        <h3 class="experience-result">გამოცდილება</h3> 
+                    </div>
+                    <div class="profession-university-div">
+                        <p class="profession-result"></p>
+                        <p class="employer-result"></p>
+                    </div>
+                    <div class="date-div-result">
+                        <p class="startdate-result"></p>
+                        <p class="enddate-result"></p>
+                    </div>
+                    <div class="description-div-result">
+                        <p class="description-experience-result"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-result"></div>
+
+            <div class="education-part-result">
+                <div>
+                    <div class="education-header-result">
+                        <h3 class="education-result">განათლება</h3> 
+                    </div>
+                    <div class="profession-university-div">
+                        <p class="university-result"></p>
+                        <p class="degree-result"></p>
+                    </div>
+                    <div class="date-result">
+                        <p class="enddate-fordegree-result"></p>
+                    </div>
+                    <div class="description-div-result">
+                        <p class="description-education-result"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="line-result"></div>
+            <img src="images/LOGO-12 1.png" alt="logo">
+        </div>
+
+    </div>
+
+</body>

@@ -68,7 +68,6 @@ body {
 form {
     width:100%;
     max-width:846px;
-    height:100%;
     display:flex;
     flex-direction: column;
     gap:33px;
@@ -166,6 +165,46 @@ input {
     margin-top: 127px;
 }
 
+/* ////experience-page styles and education-page styles//// */
+
+.working-period-div {
+    display:flex;
+    justify-content: space-between;
+}
+.working-period-div input {
+    width:371px;
+}
+.description-div input {
+    height: 123px;
+}
+.line {
+    width:100%;
+    border: 1px solid #C1C1C1;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+.adding-form-button {
+    width: 289px;
+    height: 48px;
+    background-color: #62A1EB;
+    border:none;
+    border-radius: 4px;
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    margin-bottom: 80px;
+}
+.degree-enddate-div,
+.next-back-buttons-div {
+    display:flex;
+    justify-content: space-between;
+}
+.degree-enddate-div input {
+    width:371px;
+}
 
 .icon {
     background: url(images/Vector.png);
@@ -187,6 +226,79 @@ input {
     padding: 48px 75px 44px 78px;
     border:1px solid black;
 
+}
+.general-info-part-result {
+    display:flex;
+}
+.avatar {
+    width:246px;
+    height:246px;
+}
+.name-div-result {
+    display:flex;
+    gap:20px;
+    
+}
+h2 {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    color:#F93B1D;;
+}
+.email-and-phone-div-result {
+    display:flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #1A1A1A;
+    margin-top: 17px;
+    margin-bottom: 34px;
+}
+.email-and-phone-div-result >div {
+    display:flex;
+    align-items: center;
+    gap:11px;
+}
+.email-and-phone-div-result img {
+    width:16px;
+    height:16px;
+}
+.about-me-div-result {
+    display:flex;
+    flex-direction: column;
+    gap:15px;
+}
+.about-me-div-result :first-child {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color:#F93B1D;
+}
+.about-me-div-result :last-child {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #F93B1D;
+}
+.profession-university-div p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #1A1A1A;
+}
+.line-result {
+    width:100%;
+    max-width: 662px;
+    border: 1px solid #C8C8C8;
+    margin-top:19px;
+    margin-bottom: 24px;
 }
 
 .logo-result {

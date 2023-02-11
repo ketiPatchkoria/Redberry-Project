@@ -1,15 +1,9 @@
-const arrowIcon=document.querySelector(".left-arrow-icon");
 const nextBtn=document.querySelector('.next-btn');
-const emailInputField=document.getElementById('email');
 const firstNameInputField=document.getElementById('firstname');
 const lastNameInputField=document.getElementById('lastname');
+const emailInputField=document.getElementById('email');
 const phoneNumberInputField=document.getElementById('phonenumber');
-const errorIcon=document.querySelector('.error-icon');
-
-arrowIcon.addEventListener ("click", function (){
-    location.href="index.html";
-})
-
+const aboutMeInputField=document.getElementById('aboutme');
 
 nextBtn.addEventListener ('click', function(){
     location.href="experience.html";
@@ -17,30 +11,27 @@ nextBtn.addEventListener ('click', function(){
 firstNameInputField.addEventListener('keyup', function () {
     let nameIsValid = testingName(this.value);
     displayValidation(nameIsValid, this);
+    gettingInput(this, firstNameResult);
 })
+
 lastNameInputField.addEventListener('keyup', function () {
     let nameIsValid = testingName(this.value);
     displayValidation(nameIsValid, this);
+    gettingInput(this, lastNameResult);
+})
+aboutMeInputField.addEventListener('keyup', function () {
+    gettingInput(this, aboutMeResult);
 })
 emailInputField.addEventListener('keyup', function () {
     let emailIsValid= testingEmail(this.value);
     displayValidation(emailIsValid, this);
-    console.log('keyup');
+    gettingInput(this, emailResult);
 })
-// emailInputField.addEventListener('mousedown', function () {
-//     let emailIsValid= testingEmail(this.value);
-//     coloringBorder(emailIsValid, this);
-//     console.log('mousedown');
-// })
+
 phoneNumberInputField.addEventListener('keyup', function () {
     UpdatePhoneNumberField(this);
+    gettingInput(this, phoneNumberResult);
 })
-
-// phoneNumberInputField.addEventListener('blur', function () {
-//     console.log("blur");
-//     UpdatePhoneNumberField(this);
-// })
-
 
 function UpdatePhoneNumberField(phoneNumberInput) {
     let phoneNumberIsValid=testingPhoneNumber(phoneNumberInput.value);
@@ -55,21 +46,18 @@ function addSpacesToPhoneNumber(input) {
     let inpuValueWithoutSpaces = inputValue.replaceAll(' ','');
     let formattedPhoneNumber = inpuValueWithoutSpaces
     .replace(/(\+\d{3})(\d{3})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
-    console.log(formattedPhoneNumber);
     input.value = formattedPhoneNumber;
 }
 
 function testingName (name) {
     let pattern=/^[ა-ჰ]{2,}$/;
     let result = pattern.test(name);
-    console.log(result);
     return result;
 }
 
 function testingEmail (email) {
     let pattern = /^[\w.+\-]+@redberry\.ge$/;
     let result =pattern.test(email);
-    console.log(result);
     return result;
 }
 
@@ -81,29 +69,7 @@ function testingPhoneNumber(phoneNumber) {
     return result;
 }
 
-function displayValidation (result, inputField) {
-    if (result) {
-        inputField.style.borderColor="#98E37E";
-        inputField.labels[0].style.color="#000000";
-        inputField.classList.add("icon");
-        if (inputField.parentNode.childElementCount==2){
-            inputField.parentNode.lastElementChild.remove();
-        }  
-    }
-    else {
-        inputField.style.borderColor="#EF5050";
-        inputField.labels[0].style.color="#E52F2F";
-        inputField.classList.remove("icon");
-        if (inputField.parentNode.childElementCount==1){
-            addingErrorIcon(inputField);
-        }
-    }
-}
 
-function addingErrorIcon (inputField) {
-    const errorIcon=document.createElement('img');
-    errorIcon.src='images/error.png';
-    errorIcon.classList.add('error-icon');
-    inputField.parentNode.insertBefore(errorIcon, inputField.nextSibling);
-}
+
+
 
