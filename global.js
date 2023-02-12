@@ -5,7 +5,6 @@ const lastNameResult=document.querySelector('.lastname-result');
 const emailResult=document.querySelector('.email-result');
 const phoneNumberResult=document.querySelector('.phonenumber-result');
 const aboutMeResult=document.querySelector('.aboutme-result');
-const endDateResult=document.querySelector('.enddate-result');
 const universityResult=document.querySelector('.university-result');
 const degreeResult=document.querySelector('.degree-result');
 const endDateForDegreeResult=document.querySelector('.enddate-fordegree-result');
@@ -54,10 +53,11 @@ function addingErrorIcon (inputField) {
     inputField.parentNode.insertBefore(errorIcon, inputField.nextSibling);
 }
 
-function gettingInput (inputFieldWhereToGet, inputFieldWhereToDisplay) {
-    sessionStorage.setItem(inputFieldWhereToGet, inputFieldWhereToGet.value);
-    let inputValue= sessionStorage.getItem(inputFieldWhereToGet);
-    inputFieldWhereToDisplay.innerHTML=inputValue;
+function gettingInput (fieldId, inputValue, number) {
+    let targetDivId = fieldId+'-result-'+number;
+    let targetResultDiv = document.getElementById(targetDivId);
+    sessionStorage.setItem(targetDivId, inputValue);
+    targetResultDiv.innerHTML=inputValue;
 }
 
 function addingNewStandartDiv (nameForField, textForLabel,textForPlaceholder) {
@@ -104,7 +104,7 @@ function addingNewDateDiv (nameForField, textForLabel) {
 function addingNewExperienceDivResult(number) {
     let newExperienceDivResult=document.createElement('div');
     newExperienceDivResult.classList.add('experience-div-result');
-    newExperienceDivResult.id = "result"
+    newExperienceDivResult.id = "experience-div-result-"+number;
     
     let newprofessionDivResult=document.createElement('div');
     newprofessionDivResult.classList.add('profession-university-div');

@@ -19,34 +19,60 @@ nextBtn.addEventListener ('click', function(){
 professionInputField.addEventListener('keyup', function () {
     let inputIsValid=testingMin2Symbols(this.value);
     displayValidation(inputIsValid, this);
-    let professionResult = document.querySelector('.profession-result');
-    gettingInput(this, professionResult);
+    gettingInput("profession", this.value, 0);
 })
 employerInputField.addEventListener('keyup', function () {
     let inputIsValid=testingMin2Symbols(this.value);
     displayValidation(inputIsValid, this);
-    let employerResult = document.querySelector('.employer-result');
-    gettingInput(this, employerResult);
+    gettingInput('employer', this.value, 0);
 })
 startDateInputField.addEventListener('change', function () {
-    let startDateResult = document.querySelector('.startdate-result');
-    gettingInput(this, startDateResult);
+    gettingInput("startdate", this.value, 0);
 })
 endDateInputField.addEventListener('change', function () {
-    gettingInput(this, endDateResult);
+    gettingInput("enddate", this.value, 0);
 })
 descriptionInputField.addEventListener('keyup', function () {
     let inputIsValid=testingDescription(this.value);
     displayValidation(inputIsValid, this);
-    let descriptionExperienceResult=document.querySelector('.description-experience-result');
-    gettingInput(this, descriptionExperienceResult);
+    gettingInput('description-experience', this.value, 0);
 })
 
 addNewFormButton.addEventListener('click', function () {
     addingNewExperienceDiv(count);
     addingNewExperienceDivResult(count);
+    sessionStorage.setItem("numberOfExperienceResults", count);
     count++;
 });
+
+function refreshExperienceResults() {
+    let numberOfExperienceResults = sessionStorage.getItem("numberOfExperienceResults");
+    if(numberOfExperienceResults >0)
+    {
+        for(i = 0; i< numberOfExperienceResults+1; i++) {
+            let number = i;
+            refreshResultField("profession", number);
+            refreshResultField("employer", number);
+            refreshResultField("startdate", number);
+            refreshResultField("enddate", number);
+            refreshResultField("description-experience", number);
+        }
+    }
+}
+
+function refreshResultField (fieldId, number)
+{
+    let targetDivId = fieldId+'-result-'+number;
+    let valueFromSessionStorage = sessionStorage.getItem(targetDivId);
+    if (valueFromSessionStorage != null && valueFromSessionStorage != undefined) {
+        let targetResultParentDiv = document.getElementById("experience-div-result-"+number);
+        if (targetResultParentDiv == null) {
+            addingNewExperienceDivResult(number);
+        }
+        let targetResultDiv = document.getElementById(targetDivId);
+        targetResultDiv.innerHTML=valueFromSessionStorage;
+    }
+}
 
 // function testingDate (inputField) {
 //     if (!inputField.value) {
@@ -89,32 +115,32 @@ function addingNewExperienceDiv (number) {
     newExperienceDiv.appendChild(newLineDiv);
     addNewFormButton.parentNode.insertBefore(newExperienceDiv, addNewFormButton);
 
-    
-    newDescriptionDivAndInput.inputElement.addEventListener('keyup', function () {
-        let inputIsValid=testingDescription(this.value);
-        displayValidation(inputIsValid, this);
-        gettingInput(this, document.getElementById("description-experience-result-"+number));
-    })
-
     newProfessionDivAndInput.inputElement.addEventListener('keyup', function () {
         let inputIsValid=testingMin2Symbols(this.value);
         displayValidation(inputIsValid, this);
-        
-        gettingInput(this, document.getElementById("profession-result-"+number));
+        gettingInput("profession", this.value, number);
     })
 
     newEmployerDivAndInput.inputElement.addEventListener('keyup', function () {
         let inputIsValid=testingMin2Symbols(this.value);
         displayValidation(inputIsValid, this);
-        gettingInput(this, document.getElementById("employer-result-"+number));
+        gettingInput("employer", this.value, number);
     })
 
     document.getElementById('startdate-'+number).addEventListener('change', function () {
-        gettingInput(this, document.getElementById("startdate-result-"+number));
+        gettingInput("startdate", this.value, number);
     })
 
     document.getElementById('enddate-'+number).addEventListener('change', function () {
-        gettingInput(this, document.getElementById("enddate-result-"+number));
+        gettingInput("enddate", this.value, number);
+    })
+
+    newDescriptionDivAndInput.inputElement.addEventListener('keyup', function () {
+        let inputIsValid=testingDescription(this.value);
+        displayValidation(inputIsValid, this);
+        gettingInput("description-experience", this.value, number);
     })
 }
 
+
+refreshExperienceResults();
