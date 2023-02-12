@@ -50,4 +50,34 @@ function addingNewEducationForm () {
     count++;
 }
 
+function loadDropdownOptions() {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://resume.redberryinternship.ge/api/degrees");
+  xhr.send();
+  xhr.responseType = "json";
+  xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      const degrees = xhr.response;
+      console.log(degrees);
+      for (let degree of degrees) {
+        creatingSelectOptions(degree);
+      }
+    } 
+    else {
+      console.log(`Error: ${xhr.status}`);
+    }
+  };
+}
 
+function creatingSelectOptions (degree) {
+    const opt=document.createElement('option');
+    opt.innerHTML = degree.title;
+    degreeInputField.appendChild(opt);
+}
+
+loadDropdownOptions();
+
+degreeInputField.addEventListener('change', function () {
+    let selectedOption=this.value;
+    console.log(selectedOption);
+})
