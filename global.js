@@ -5,11 +5,7 @@ const lastNameResult=document.querySelector('.lastname-result');
 const emailResult=document.querySelector('.email-result');
 const phoneNumberResult=document.querySelector('.phonenumber-result');
 const aboutMeResult=document.querySelector('.aboutme-result');
-const professionResult=document.querySelector('.profession-result');
-const employerResult=document.querySelector('.employer-result');
-const startDateResult=document.querySelector('.startdate-result');
 const endDateResult=document.querySelector('.enddate-result');
-const descriptionExperienceResult=document.querySelector('.description-experience-result');
 const universityResult=document.querySelector('.university-result');
 const degreeResult=document.querySelector('.degree-result');
 const endDateForDegreeResult=document.querySelector('.enddate-fordegree-result');
@@ -61,7 +57,6 @@ function addingErrorIcon (inputField) {
 function gettingInput (inputFieldWhereToGet, inputFieldWhereToDisplay) {
     sessionStorage.setItem(inputFieldWhereToGet, inputFieldWhereToGet.value);
     let inputValue= sessionStorage.getItem(inputFieldWhereToGet);
-    //inputFieldWhereToDisplay.value=inputValue;
     inputFieldWhereToDisplay.innerHTML=inputValue;
 }
 
@@ -83,7 +78,10 @@ function addingNewStandartDiv (nameForField, textForLabel,textForPlaceholder) {
     newStandartDiv.appendChild(newLabel);
     newStandartDiv.appendChild(newDivForInput);
     newStandartDiv.appendChild(newP);
-    return newStandartDiv;
+    return {
+        parentDiv: newStandartDiv,
+        inputElement: newInputField
+    }
 }
 
 function addingNewDateDiv (nameForField, textForLabel) {
@@ -103,11 +101,60 @@ function addingNewDateDiv (nameForField, textForLabel) {
     return newDateDiv;
 }
 
-function addingNewDescriptionDiv (nameForField, textForLabel,textForPlaceholder){
+function addingNewExperienceDivResult(number) {
+    let newExperienceDivResult=document.createElement('div');
+    newExperienceDivResult.classList.add('experience-div-result');
+    newExperienceDivResult.id = "result"
+    
+    let newprofessionDivResult=document.createElement('div');
+    newprofessionDivResult.classList.add('profession-university-div');
+    let professionResult=document.createElement('p');
+    professionResult.classList.add('profession-result');
+    professionResult.id = "profession-result-"+number;
+
+    let employerResult=document.createElement('p');
+    employerResult.classList.add('employer-result');
+    employerResult.id = "employer-result-"+number;
+    newprofessionDivResult.appendChild(professionResult);
+    newprofessionDivResult.appendChild(employerResult);
+
+    let newDateDivResult=document.createElement('div');
+    newDateDivResult.classList.add('date-div-result');
+    let startDateResult=document.createElement('p');
+    startDateResult.classList.add('startdate-result');
+    startDateResult.id = "startdate-result-"+number;
+
+    let endDateResult=document.createElement('p');
+    endDateResult.classList.add('enddate-result');
+    endDateResult.id = "enddate-result-"+number;
+
+    newDateDivResult.appendChild(startDateResult);
+    newDateDivResult.appendChild(endDateResult);
+
+    let newDescriptionDivResult=document.createElement('div');
+    newDescriptionDivResult.classList.add('description-div-result');
+    let descriptionExperienceResult=document.createElement('p');
+    descriptionExperienceResult.classList.add('description-experience-result');
+    descriptionExperienceResult.id = "description-experience-result-"+number;
+    newDescriptionDivResult.appendChild(descriptionExperienceResult);
+
+    let newLine=document.createElement('div');
+    newLine.classList.add('line-result');
+
+    newExperienceDivResult.appendChild(newprofessionDivResult);
+    newExperienceDivResult.appendChild(newDateDivResult);
+    newExperienceDivResult.appendChild(newDescriptionDivResult);
+    newExperienceDivResult.appendChild(newLine);
+    document.querySelector('.experience-part-result').appendChild(newExperienceDivResult);
+    return newExperienceDivResult;
+}
+
+function addingNewDescriptionDiv (textForLabel,textForPlaceholder){
     let newDescriptionDiv=document.createElement('div');
     let newLabel=document.createElement('label');
     let newDivForInput=document.createElement('div');
     let newInputField=document.createElement('input');
+    let nameForField= "description-";
     newDescriptionDiv.classList.add('standart-form-div');
     newDescriptionDiv.classList.add('description-div');
     newLabel.innerHTML=textForLabel;
@@ -116,10 +163,15 @@ function addingNewDescriptionDiv (nameForField, textForLabel,textForPlaceholder)
     newInputField.name=nameForField+count;
     newInputField.type="text";
     newInputField.placeholder=textForPlaceholder;
+    
     newDivForInput.appendChild(newInputField);
     newDescriptionDiv.appendChild(newLabel);
     newDescriptionDiv.appendChild(newDivForInput);
-    return newDescriptionDiv;
+
+    return {
+        parentDiv: newDescriptionDiv,
+        inputElement: newInputField
+    }
 }
 
 

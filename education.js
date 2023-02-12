@@ -38,7 +38,7 @@ function addingNewEducationForm () {
     let newDateDiv=addingNewDateDiv(enddate, 'დამთავრების რიცხვი');
     //newDegreeDateDiv.appendChild();
     newDegreeDateDiv.appendChild(newDateDiv);
-    let newDescriptionDiv=addingNewDescriptionDiv(description,'აღწერა', 'როლი თანამდებობაზე და ზოგადი აღწერა');
+    let newDescriptionDiv=addingNewDescriptionDiv('აღწერა', 'როლი თანამდებობაზე და ზოგადი აღწერა').parentDiv;
     let newLineDiv=document.createElement('div');
     newLineDiv.classList.add('line');
 
