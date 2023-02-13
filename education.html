@@ -34,7 +34,8 @@
                     <div class="standart-form-div">
                         <label for="degree">ხარისხი</label>
                         <div>
-                            <select id="degree" name="degree" placeholder="აირჩიეთ ხარისხი"required>
+                            <select id="degree" name="degree" required>
+                               <option disabled selected hidden>აირჩიეთ ხარისხი</option> 
                             </select>
                         </div>
                     </div>
@@ -95,7 +96,7 @@
                     <div class="experience-header-result">
                         <h3 class="experience-result">გამოცდილება</h3> 
                     </div>
-                    <div class="profession-university-div">
+                    <div class="profession-university-div-result">
                         <p class="profession-result"></p>
                         <p class="employer-result"></p>
                     </div>
@@ -116,20 +117,22 @@
                     <div class="education-header-result">
                         <h3 class="education-result">განათლება</h3> 
                     </div>
-                    <div class="profession-university-div">
-                        <p class="university-result"></p>
-                        <p class="degree-result"></p>
+                    <div class="profession-university-div-result">
+                        <p class="university-result" id="university-result-0"></p>
+                        <p class="degree-result" id="degree-result-0"></p>
                     </div>
                     <div class="date-result">
-                        <p class="enddate-fordegree-result"></p>
+                        <p class="enddate-fordegree-result" id="enddate-fordegree-result-0"></p>
                     </div>
                     <div class="description-div-result">
-                        <p class="description-education-result"></p>
+                        <p class="description-education-result" id="description-education-result-0"></p>
                     </div>
+                    
+                    <div class="line-result"></div>
+
                 </div>
             </div>
             
-            <div class="line-result"></div>
             <img src="images/LOGO-12 1.png" alt="logo">
         </div>
 

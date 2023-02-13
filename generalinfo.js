@@ -9,34 +9,34 @@ nextBtn.addEventListener ('click', function(){
     location.href="experience.html";
 })
 firstNameInputField.addEventListener('keyup', function () {
-    let nameIsValid = testingName(this.value);
-    displayValidation(nameIsValid, this);
-    gettingInput(this, firstNameResult);
+    let inputIsValid = testingName(this.value);
+    displayValidation(inputIsValid, this);
+    updateResultField("firstname", this.value, 0);
 })
 
 lastNameInputField.addEventListener('keyup', function () {
-    let nameIsValid = testingName(this.value);
-    displayValidation(nameIsValid, this);
-    gettingInput(this, lastNameResult);
+    let inputIsValid = testingName(this.value);
+    displayValidation(inputIsValid, this);
+    updateResultField("lastname", this.value, 0);
 })
 aboutMeInputField.addEventListener('keyup', function () {
-    gettingInput(this, aboutMeResult);
+    updateResultField("aboutme", this.value, 0);
 })
 emailInputField.addEventListener('keyup', function () {
-    let emailIsValid= testingEmail(this.value);
-    displayValidation(emailIsValid, this);
-    gettingInput(this, emailResult);
+    let inputIsValid= testingEmail(this.value);
+    displayValidation(inputIsValid, this);
+    updateResultField("email", this.value, 0);
 })
 
 phoneNumberInputField.addEventListener('keyup', function () {
     UpdatePhoneNumberField(this);
-    gettingInput(this, phoneNumberResult);
+    updateResultField("phonenumber", this.value, 0);
 })
 
 function UpdatePhoneNumberField(phoneNumberInput) {
-    let phoneNumberIsValid=testingPhoneNumber(phoneNumberInput.value);
-    displayValidation(phoneNumberIsValid, phoneNumberInput);
-    if(phoneNumberIsValid) {
+    let inputIsValid=testingPhoneNumber(phoneNumberInput.value);
+    displayValidation(inputIsValid, phoneNumberInput);
+    if(inputIsValid) {
         addSpacesToPhoneNumber(phoneNumberInput);
     }
 }

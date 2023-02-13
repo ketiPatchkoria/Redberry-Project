@@ -13,6 +13,7 @@ const descriptionEducationResult=document.querySelector('.description-education-
 
 arrowIcon.addEventListener ("click", function (){
     location.href="index.html";
+    sessionStorage.clear();
 })
 
 function testingDescription (inputField) {
@@ -53,11 +54,12 @@ function addingErrorIcon (inputField) {
     inputField.parentNode.insertBefore(errorIcon, inputField.nextSibling);
 }
 
-function gettingInput (fieldId, inputValue, number) {
-    let targetDivId = fieldId+'-result-'+number;
-    let targetResultDiv = document.getElementById(targetDivId);
-    sessionStorage.setItem(targetDivId, inputValue);
-    targetResultDiv.innerHTML=inputValue;
+
+function updateResultField (fieldId, inputValue, number) {
+    let targetParagraphId = fieldId+'-result-'+number;
+    let targetParagraph = document.getElementById(targetParagraphId);
+    sessionStorage.setItem(targetParagraphId, inputValue);
+    targetParagraph.innerHTML=inputValue;
 }
 
 function addingNewStandartDiv (nameForField, textForLabel,textForPlaceholder) {
@@ -68,9 +70,9 @@ function addingNewStandartDiv (nameForField, textForLabel,textForPlaceholder) {
     let newP=document.createElement('p');
     newStandartDiv.classList.add('standart-form-div');
     newLabel.innerHTML=textForLabel;
-    newLabel.htmlFor=nameForField+count;
-    newInputField.id=nameForField+count;
-    newInputField.name=nameForField+count;
+    newLabel.htmlFor=nameForField+number;
+    newInputField.id=nameForField+number;
+    newInputField.name=nameForField+number;
     newInputField.type="text";
     newInputField.placeholder=textForPlaceholder;
     newP.innerText="მინიმუმ 2 სიმბოლო";
@@ -91,62 +93,14 @@ function addingNewDateDiv (nameForField, textForLabel) {
     let newInputField=document.createElement('input');
     newDateDiv.classList.add('standart-form-div');
     newLabel.innerHTML=textForLabel;
-    newLabel.htmlFor=nameForField+count;
-    newInputField.id=nameForField+count;
-    newInputField.name=nameForField+count;
+    newLabel.htmlFor=nameForField+number;
+    newInputField.id=nameForField+number;
+    newInputField.name=nameForField+number;
     newInputField.type="date";
     newDivForInput.appendChild(newInputField);
     newDateDiv.appendChild(newLabel);
     newDateDiv.appendChild(newDivForInput);
     return newDateDiv;
-}
-
-function addingNewExperienceDivResult(number) {
-    let newExperienceDivResult=document.createElement('div');
-    newExperienceDivResult.classList.add('experience-div-result');
-    newExperienceDivResult.id = "experience-div-result-"+number;
-    
-    let newprofessionDivResult=document.createElement('div');
-    newprofessionDivResult.classList.add('profession-university-div');
-    let professionResult=document.createElement('p');
-    professionResult.classList.add('profession-result');
-    professionResult.id = "profession-result-"+number;
-
-    let employerResult=document.createElement('p');
-    employerResult.classList.add('employer-result');
-    employerResult.id = "employer-result-"+number;
-    newprofessionDivResult.appendChild(professionResult);
-    newprofessionDivResult.appendChild(employerResult);
-
-    let newDateDivResult=document.createElement('div');
-    newDateDivResult.classList.add('date-div-result');
-    let startDateResult=document.createElement('p');
-    startDateResult.classList.add('startdate-result');
-    startDateResult.id = "startdate-result-"+number;
-
-    let endDateResult=document.createElement('p');
-    endDateResult.classList.add('enddate-result');
-    endDateResult.id = "enddate-result-"+number;
-
-    newDateDivResult.appendChild(startDateResult);
-    newDateDivResult.appendChild(endDateResult);
-
-    let newDescriptionDivResult=document.createElement('div');
-    newDescriptionDivResult.classList.add('description-div-result');
-    let descriptionExperienceResult=document.createElement('p');
-    descriptionExperienceResult.classList.add('description-experience-result');
-    descriptionExperienceResult.id = "description-experience-result-"+number;
-    newDescriptionDivResult.appendChild(descriptionExperienceResult);
-
-    let newLine=document.createElement('div');
-    newLine.classList.add('line-result');
-
-    newExperienceDivResult.appendChild(newprofessionDivResult);
-    newExperienceDivResult.appendChild(newDateDivResult);
-    newExperienceDivResult.appendChild(newDescriptionDivResult);
-    newExperienceDivResult.appendChild(newLine);
-    document.querySelector('.experience-part-result').appendChild(newExperienceDivResult);
-    return newExperienceDivResult;
 }
 
 function addingNewDescriptionDiv (textForLabel,textForPlaceholder){
@@ -158,9 +112,9 @@ function addingNewDescriptionDiv (textForLabel,textForPlaceholder){
     newDescriptionDiv.classList.add('standart-form-div');
     newDescriptionDiv.classList.add('description-div');
     newLabel.innerHTML=textForLabel;
-    newLabel.htmlFor=nameForField+count;
-    newInputField.id=nameForField+count;
-    newInputField.name=nameForField+count;
+    newLabel.htmlFor=nameForField+number;
+    newInputField.id=nameForField+number;
+    newInputField.name=nameForField+number;
     newInputField.type="text";
     newInputField.placeholder=textForPlaceholder;
     

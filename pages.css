@@ -205,6 +205,16 @@ input {
 .degree-enddate-div input {
     width:371px;
 }
+select {
+    width:371px;
+    height:48px;
+}
+
+.for-new-div {
+    display:flex;
+    flex-direction: column;
+    gap:33px;
+}
 
 .icon {
     background: url(images/Vector.png);
@@ -225,6 +235,7 @@ input {
     max-width:822px;
     padding: 48px 75px 44px 78px;
     border:1px solid black;
+    line-break: anywhere;
 
 }
 .general-info-part-result {
@@ -281,17 +292,46 @@ h2 {
     line-height: 22px;
     color: #000000;
 }
+.experience-div-result {
+    display:flex;
+    flex-direction: column;
+    gap:15px;
+}
 h3 {
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
     color: #F93B1D;
 }
-.profession-university-div p {
+.profession-university-div-result {
+    display:flex;
+    gap:7px;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     color: #1A1A1A;
+}
+.profession-university-div p {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #1A1A1A;
+}
+.date-div-result {
+    display:flex;
+    gap: 5px;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #919191;
+}
+.description-div-result p {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: capitalize;
+    color: #000000;
 }
 .line-result {
     width:100%;
