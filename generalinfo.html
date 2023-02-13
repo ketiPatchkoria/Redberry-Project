@@ -22,12 +22,12 @@
                 <div class="line-header"></div>  
             </div>
     
-            <form>
+            <form id="form-general-info">
                 <div class="name-div">
                     <div class="standart-form-div">
                         <label for="firstname">სახელი</label>
                         <div>
-                            <input type="text" id="firstname" name="firstname" placeholder="ანზორ" pattern="" required> 
+                            <input type="text" id="firstname" name="firstname" placeholder="ანზორ" required> 
                         </div>
                         <p>მინიმუმ 2 ასო, ქართული ასოები</p>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="photo-div standart-form-div">
                     <label>პირადი ფოტოს ატვირთვა</label>
                     <label for="photo" class="upload-btn">ატვირთვა</label>
-                    <input type="file" id="photo" name="photo" style="visibility:hidden;" placeholder="ატვირთვა" required>
+                    <input type="file" id="photo" name="photo" style="visibility:hidden;" placeholder="ატვირთვა" onchange="loadFile()" required>
                 </div>
     
                 <div class="about-me-div standart-form-div">
@@ -54,7 +54,7 @@
                 <div class="email-div standart-form-div">
                     <label for="email">ელ-ფოსტა</label>
                     <div>
-                        <input type="email" id="email" name="email" placeholder="anzor666@redberry.ge" pattern="/^[\w.+\-]+@redberry\.ge$/" required>
+                        <input type="email" id="email" name="email" placeholder="anzor666@redberry.ge"  required>
                     </div>
                     <p>უნდა მთავრდებოდეს @redberry.ge-ით</p>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="phone-number-div standart-form-div">
                     <label for="phonenumber">მობილურის ნომერი</label>
                     <div>
-                        <input type="tel" id="phonenumber" name="phonenumber" pattern="" placeholder="+995 551 12 34 56">
+                        <input type="tel" id="phonenumber" name="phonenumber" placeholder="+995 551 12 34 56">
                         <img class="error-icon hidden"src="images/error.png" alt="error icon">
                     </div>
                     <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
@@ -99,45 +99,45 @@
         <div class="line-result"></div>
 
         <div class="experience-part-result">
-            <div>
+            <div class="experience-div-result" id="experience-div-result-0">
                 <div class="experience-header-result">
                     <h3 class="experience-result">გამოცდილება</h3> 
                 </div>
-                <div class="profession-university-div">
-                    <p class="profession-result"></p>
-                    <p class="employer-result"></p>
+                <div class="profession-university-div-result">
+                    <p class="profession-result" id="profession-result-0"></p>
+                    <p class="employer-result" id="employer-result-0"></p>
                 </div>
                 <div class="date-div-result">
-                    <p class="startdate-result"></p>
-                    <p class="enddate-result"></p>
+                    <p class="startdate-result" id="startdate-result-0"></p>
+                    <p class="enddate-result" id="enddate-result-0"></p>
                 </div>
                 <div class="description-div-result">
-                    <p class="description-experience-result"></p>
+                    <p class="description-experience-result" id="description-experience-result-0"></p>
                 </div>
             </div>
+            <div class="line-result"></div>
         </div>
-
-        <div class="line-result"></div>
 
         <div class="education-part-result">
             <div>
                 <div class="education-header-result">
                     <h3 class="education-result">განათლება</h3> 
                 </div>
-                <div class="profession-university-div">
-                    <p class="university-result"></p>
-                    <p class="degree-result"></p>
+                <div class="profession-university-div-result">
+                    <p class="university-result" id="university-result-0"></p>
+                    <p class="degree-result" id="degree-result-0"></p>
                 </div>
                 <div class="date-result">
-                    <p class="enddate-fordegree-result"></p>
+                    <p class="enddate-fordegree-result" id="enddate-fordegree-result-0"></p>
                 </div>
                 <div class="description-div-result">
-                    <p class="description-education-result"></p>
+                    <p class="description-education-result" id="description-education-result-0"></p>
                 </div>
+                
+                <div class="line-result"></div>
+
             </div>
         </div>
-        
-        <div class="line-result"></div>
             <img class="logo-result"src="images/LOGO-12 1.png" alt="logo">
        </div>
     </div>

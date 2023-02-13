@@ -5,10 +5,12 @@ const universityInputField=document.getElementById('university');
 const degreeInputField=document.getElementById('degree');
 const endDateForDegreeInputField=document.getElementById('enddate-fordegree');
 const descriptionInputField=document.getElementById('description');
-let number=1;
+let count=1;
 
 backBtn.addEventListener ('click', function(){
-  location.href="experience.html";
+  if(document.getElementById("form-education").reportValidity()) {
+    location.href="experience.html";
+  }
 })
 nextBtn.addEventListener ('click', function(){
   location.href="result.html";
@@ -34,9 +36,9 @@ degreeInputField.addEventListener('change', function () {
 })
 
 addNewFormButton.addEventListener('click', function () {
-  addingNewEducationDiv(number);
-  addingNewEducationDivResult(number);
-  number++;
+  addingNewEducationDiv(count);
+  addingNewEducationDivResult(count);
+  count++;
 });
 
 function addingNewEducationDiv (number) {
@@ -98,49 +100,9 @@ function addingNewEducationDiv (number) {
   })
     document.getElementById('degree-'+number).addEventListener('change', function () {
       updateResultField("degree", this.value, number);
+      updateResultField("degree_id", this.id, number);
     })
 
-}
-
-function addingNewEducationDivResult(number) {
-    let newEducationDivResult=document.createElement('div');
-    newEducationDivResult.classList.add('education-div-result');
-    newEducationDivResult.id = "education-div-result-"+number;
-    
-    let newUniversityAndDegreeDivResult=document.createElement('div');
-    newUniversityAndDegreeDivResult.classList.add('profession-university-div-result');
-    let universityResult=document.createElement('p');
-    universityResult.classList.add('university-result');
-    universityResult.id = "university-result-"+number;
-
-    let degreeResult=document.createElement('p');
-    degreeResult.classList.add('degree-result');
-    degreeResult.id = "degree-result-"+number;
-    newUniversityAndDegreeDivResult.appendChild(universityResult);
-    newUniversityAndDegreeDivResult.appendChild(degreeResult);
-
-    let newDateDivResult=document.createElement('div');
-    let endDateForDegreeResult=document.createElement('p');
-    endDateForDegreeResult.classList.add('enddate-fordegree-result');
-    endDateForDegreeResult.id = "enddate-fordegree-result-"+number;
-    newDateDivResult.appendChild(endDateForDegreeResult);
-
-    let newDescriptionDivResult=document.createElement('div');
-    newDescriptionDivResult.classList.add('description-div-result');
-    let descriptionEducationResult=document.createElement('p');
-    descriptionEducationResult.classList.add('description-education-result');
-    descriptionEducationResult.id = "description-education-result-"+number;
-    newDescriptionDivResult.appendChild(descriptionEducationResult);
-
-    let newLine=document.createElement('div');
-    newLine.classList.add('line-result');
-
-    newEducationDivResult.appendChild(newUniversityAndDegreeDivResult);
-    newEducationDivResult.appendChild(newDateDivResult);
-    newEducationDivResult.appendChild(newDescriptionDivResult);
-    newEducationDivResult.appendChild(newLine);
-    document.querySelector('.education-part-result').appendChild(newEducationDivResult);
-    return newEducationDivResult;
 }
 
 function loadDropdownOptions() {
@@ -165,32 +127,16 @@ function loadDropdownOptions() {
 function creatingSelectOptions (degree) {
     const opt=document.createElement('option');
     opt.innerHTML = degree.title;
+    opt.id = degree.id;
     degreeInputField.appendChild(opt);
 }
 
 loadDropdownOptions();
 
-function refreshEducationResults() {
-  let numberOfEducationResults = sessionStorage.getItem("numberOfEducationResults");
-  if(numberOfEducationResults == null) {
-      numberOfEducationResults = 0;
-  }
-
-  if(numberOfEducationResults >= 0) {
-      for(i = 0; i <= numberOfEducationResults; i++) {
-          let number = i;
-          refreshResultField("university", number);
-          refreshResultField("degree", number);
-          refreshResultField("enddate-fordegree", number);
-          refreshResultField("description-education", number);
-      }
-  }
-}
-
-function refreshResultField (fieldId, number) {
+function refreshEducationResultField (fieldId, number) {
   let targetParagraphId = fieldId+'-result-'+number;
   let valueFromSessionStorage = sessionStorage.getItem(targetParagraphId);
-  if (valueFromSessionStorage != null && valueFromSessionStorage != undefined) {
+  if (valueFromSessionStorage != null) {
       let targetResultParentDiv = document.getElementById("education-div-result-"+number);
       if (targetResultParentDiv == null) {
           addingNewEducationDivResult(number);
@@ -200,4 +146,6 @@ function refreshResultField (fieldId, number) {
   }
 }
 
+refreshGeneralInfoResults();
+refreshExperienceResults();
 refreshEducationResults();

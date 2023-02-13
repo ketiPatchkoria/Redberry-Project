@@ -6,28 +6,36 @@ const phoneNumberInputField=document.getElementById('phonenumber');
 const aboutMeInputField=document.getElementById('aboutme');
 
 nextBtn.addEventListener ('click', function(){
-    location.href="experience.html";
+    if(document.getElementById("form-general-info").reportValidity()) {
+        location.href="experience.html";
+    }
 })
+
+firstNameInputField.addEventListener('invalid', (event) => {console.log(event);});
 firstNameInputField.addEventListener('keyup', function () {
     let inputIsValid = testingName(this.value);
     displayValidation(inputIsValid, this);
     updateResultField("firstname", this.value, 0);
 })
 
+lastNameInputField.addEventListener('invalid', (event) => {console.log(event);});
 lastNameInputField.addEventListener('keyup', function () {
     let inputIsValid = testingName(this.value);
     displayValidation(inputIsValid, this);
     updateResultField("lastname", this.value, 0);
 })
+aboutMeInputField.addEventListener('invalid', (event) => {console.log(event);});
 aboutMeInputField.addEventListener('keyup', function () {
     updateResultField("aboutme", this.value, 0);
 })
+emailInputField.addEventListener('invalid', (event) => {console.log(event);});
 emailInputField.addEventListener('keyup', function () {
     let inputIsValid= testingEmail(this.value);
     displayValidation(inputIsValid, this);
     updateResultField("email", this.value, 0);
 })
 
+phoneNumberInputField.addEventListener('invalid', (event) => {console.log(event);});
 phoneNumberInputField.addEventListener('keyup', function () {
     UpdatePhoneNumberField(this);
     updateResultField("phonenumber", this.value, 0);
@@ -68,6 +76,13 @@ function testingPhoneNumber(phoneNumber) {
     console.log(result);
     return result;
 }
+
+refreshGeneralInfoResults();
+
+function loadFile() {
+    var file    = document.querySelector('input[type=file]').files[0];
+    sessionStorage.setItem('photo', file);
+  }
 
 
 
