@@ -61,7 +61,7 @@ function updateResultField (fieldId, inputValue, number) {
     targetParagraph.innerHTML=inputValue;
 }
 
-function addingNewStandartDiv (nameForField, textForLabel,textForPlaceholder) {
+function addingNewStandartDiv (nameForField, textForLabel,textForPlaceholder, number) {
     let newStandartDiv=document.createElement('div');
     let newLabel=document.createElement('label');
     let newDivForInput=document.createElement('div');
@@ -85,7 +85,7 @@ function addingNewStandartDiv (nameForField, textForLabel,textForPlaceholder) {
     }
 }
 
-function addingNewDateDiv (nameForField, textForLabel) {
+function addingNewDateDiv (nameForField, textForLabel, number) {
     let newDateDiv=document.createElement('div');
     let newLabel=document.createElement('label');
     let newDivForInput=document.createElement('div');
@@ -102,7 +102,7 @@ function addingNewDateDiv (nameForField, textForLabel) {
     return newDateDiv;
 }
 
-function addingNewDescriptionDiv (textForLabel,textForPlaceholder){
+function addingNewDescriptionDiv (textForLabel,textForPlaceholder, number){
     let newDescriptionDiv=document.createElement('div');
     let newLabel=document.createElement('label');
     let newDivForInput=document.createElement('div');

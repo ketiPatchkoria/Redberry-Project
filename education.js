@@ -45,7 +45,7 @@ function addingNewEducationDiv (number) {
     const newEducationDiv = document.createElement('div');
     newEducationDiv.classList.add('for-new-div');
     
-    const newDivForUniversity=addingNewStandartDiv("university-", 'სასწავლებელი', 'სასწავლებელი');
+    const newDivForUniversity=addingNewStandartDiv("university-", 'სასწავლებელი', 'სასწავლებელი', number);
     
     const newDegreeDateDiv=document.createElement('div');
     newDegreeDateDiv.classList.add('degree-enddate-div');
@@ -71,11 +71,11 @@ function addingNewEducationDiv (number) {
       newSelectField.appendChild(optionField);
     }
 
-    const newDateDiv=addingNewDateDiv("enddate-fordegree-", 'დამთავრების რიცხვი');
+    const newDateDiv=addingNewDateDiv("enddate-fordegree-", 'დამთავრების რიცხვი', number);
     newDegreeDateDiv.appendChild(newDivForDegree);
     newDegreeDateDiv.appendChild(newDateDiv);
     
-    const newDescriptionDiv=addingNewDescriptionDiv('აღწერა', 'როლი თანამდებობაზე და ზოგადი აღწერა');
+    const newDescriptionDiv=addingNewDescriptionDiv('აღწერა', 'როლი თანამდებობაზე და ზოგადი აღწერა', number);
     const newLineDiv=document.createElement('div');
     newLineDiv.classList.add('line');
 

@@ -50,17 +50,17 @@ addNewFormButton.addEventListener('click', function () {
 function addingNewExperienceDiv (number) {
     let newExperienceDiv = document.createElement('div');
     newExperienceDiv.classList.add('for-new-div');
-    let newProfessionDivAndInput=addingNewStandartDiv("profession-", 'თანამდებობა', 'დეველოპერი, დიზაინერი, ა.შ.');
-    let newEmployerDivAndInput=addingNewStandartDiv("employer-","დამსაქმებელი", 'დამსაქმებელი');
+    let newProfessionDivAndInput=addingNewStandartDiv("profession-", 'თანამდებობა', 'დეველოპერი, დიზაინერი, ა.შ.', number);
+    let newEmployerDivAndInput=addingNewStandartDiv("employer-","დამსაქმებელი", 'დამსაქმებელი', number);
     
     let startAndEndDateParentDiv=document.createElement('div');
     startAndEndDateParentDiv.classList.add('working-period-div');
-    let newStartDateDiv=addingNewDateDiv("startdate-", 'დაწყების რიცხვი');
-    let newEndDateDiv=addingNewDateDiv("enddate-", 'დამთავრების რიცხვი');
+    let newStartDateDiv=addingNewDateDiv("startdate-", 'დაწყების რიცხვი', number);
+    let newEndDateDiv=addingNewDateDiv("enddate-", 'დამთავრების რიცხვი', number);
     startAndEndDateParentDiv.appendChild(newStartDateDiv);
     startAndEndDateParentDiv.appendChild(newEndDateDiv);
 
-    let newDescriptionDivAndInput=addingNewDescriptionDiv('აღწერა', 'როლი თანამდებობაზე და ზოგადი აღწერა');
+    let newDescriptionDivAndInput=addingNewDescriptionDiv('აღწერა', 'როლი თანამდებობაზე და ზოგადი აღწერა', number);
 
     let newLineDiv=document.createElement('div');
     newLineDiv.classList.add('line');
